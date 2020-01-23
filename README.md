@@ -1,1 +1,6 @@
-# web-scraping-challenge
+# Web Scraping Challenge
+## Web Scraping
+Used BeautifulSoup, Pandas, and Requests/Splinter to web scrape the [NASA Mars News Site](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest). It was scraped for the latest news title and paragraph. Then [JPL Mars Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars) was scraped for the featured Mars image. Next the [Mars Weather Twitter](https://twitter.com/marswxreport?lang=en) account was scraped to obtain the latest Mars weather tweet. Finally, [Mars Facts](https://space-facts.com/mars/) was scraped as well as [USGS Astrogeology site](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars).
+
+## MongoDB and Flask Application
+The scrape_mars.py has a function called scrape that executes all of the above described scraping. It returns the information as a Python dictionary. The route /scrape imports the scrape_mars.py file and calls the scrape function. The value returned is then stored in Mongo as a Python dictionary. The route / then queries the Mongo database so that the data can be displayed in an HTML template.
